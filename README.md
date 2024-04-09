@@ -1,4 +1,4 @@
-SIMULATION AND IMPLEMENTATION OF MULTIPLIE
+## SIMULATION AND IMPLEMENTATION OF MULTIPLIE
 ## AIM: 
  To simulate and synthesis multiplier using Xilinx ISE.
 
@@ -19,18 +19,10 @@ STEP:9  In the Design Object List Window, enter the pin location for each pin in
 STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here.
 STEP:11  On the board, by giving required input, the LEDs starts to glow light, indicating the output.
 
-## Logic Diagram
-### 2 bit Multiplier
-
+## 2 BIT MULTIPLIER:
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-3/assets/6987778/7713750f-65e6-41c0-8082-5005eac4031c)
-
-### 4 Bit Multiplier
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-3/assets/6987778/d95215dd-8cf1-4e08-93cc-96adfdd7fbdc)
-
-
-## Verilog code
-### 2 Bit Multiplier
+### Verilog Code:
 ```
 module HalfAdder(a,b,sum,carry);
 input a,b;
@@ -39,7 +31,7 @@ xor (sum,a,b);
 and (carry,a,b);
 endmodule
 
-module Multiplier(a,b,y);
+module twomul(a,b,y);
 input [1:0]a,b;
 output [3:0]y;
 wire w1,w2,w3,w4;
@@ -51,7 +43,13 @@ HalfAdder h0(w1,w2,y[1],w4);
 HalfAdder h1(w3,w4,y[2],y[3]);
 endmodule
 ```
-### 4 Bit Multiplier
+### Output:
+![2mul](https://github.com/vignesh7605/VLSI-LAB-EXP-3/assets/160568690/2b667c00-20a9-4bd9-b444-b7bcc34a6f95)
+
+### 4 BIT MULTIPLIER:
+### Logic Diagram:
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-3/assets/6987778/d95215dd-8cf1-4e08-93cc-96adfdd7fbdc)
+## Verilog code:
 ```
 module  ha (a,b,s,c);
 input a,b;
@@ -69,8 +67,7 @@ and g3(w2,w1,c);
 and g4(w3,a,b);
 or g5(carry,w2,w3);
 endmodule
-
-module mul_4_bit(x,y,z);
+module fourmul(x,y,z);
 input [3:0]x,y;
 output [7:0]z;
 wire [17:1]w;
@@ -89,12 +86,7 @@ fa fa7 (w[14],x[2]&y[3],w[16], z[5],w[17]);
 fa fa8 (w[11],x[3]&y[3],w[17],z[6],z[7]);
 endmodule
 ```
-
-## Output Waveform
-### 2 Bit Multiplier
-![2mul](https://github.com/vignesh7605/VLSI-LAB-EXP-3/assets/160568690/2b667c00-20a9-4bd9-b444-b7bcc34a6f95)
-
-### 4 Bit Multiplier
+### Output:
 ![mul](https://github.com/vignesh7605/VLSI-LAB-EXP-3/assets/160568690/eccce533-8bd9-430c-a730-64854a435106)
 
 ## Result
